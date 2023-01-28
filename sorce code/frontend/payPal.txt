@@ -1,0 +1,3 @@
+sandbox account = sb-zzpha22266431@business.example.com
+client id = AZGsKs6_9xSynYZ4jHUK1qoPlK46_KksdexHg8foh3gHl1mZhEBMlVCyxiCIPT9DW-kD-uqHg2H-xwD8
+url = nativexo://paypalpay

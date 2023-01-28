@@ -1,0 +1,299 @@
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.listItem:hover {
+  background-color: #ff8400;
+  border-radius: 5px;
+  border: #ffcc00;
+}
+
+.cardStyle {
+  margin: 15px;
+  padding: 15px;
+  height: 350px;
+  width: 30%;
+}
+
+
+.position-sticky {
+  z-index: 1;
+}
+
+.sidebar {
+  height: 100vh;
+  position: sticky;
+  top: 60px;
+  bottom: 0px;
+
+
+}
+
+.card-text {
+  font-size: 12px;
+  margin: 2px;
+}
+
+
+.contentbar {
+  float: right;
+
+}
+
+.sidebar h4 {
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 10px;
+}
+
+.sidebar ul li {
+  text-align: start;
+  margin: 10px;
+  padding: 5px;
+}
+
+.sidebar ul li:hover {
+  font-weight: bold;
+  color: #61dafb;
+  background-color: snow;
+  border-radius: 10px;
+}
+
+
+
+
+
+.row p,
+h4,
+h6 {
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.cardDetail {
+
+  border-radius: 5px;
+  margin: 10px;
+}
+
+
+.row p {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.detail {
+  margin: 10px;
+}
+
+
+.listItem:active {
+  background-color: #ffcc00;
+}
+
+
+span{
+  font-weight: bold;
+}
+
+.nav-link{
+  color: #066a07;
+  
+}
+.nav-link:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.login{
+  position: relative;
+  top: 100px;
+  
+}
+
+.login i {
+  position: absolute;
+}
+
+h6.text-danger{
+  font-size: 50px;
+}
+
+.login {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+span.text-info{
+  font-size: 30px;
+}
+h4.categoryText{
+  text-transform: uppercase;
+}
+p.price{
+  font-size: 22px;
+  color: #ff8400;
+}
+p.DescText{
+  font-size: 22px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.form-control {
+  width: 100%;
+
+  text-align: center;
+}
+
+.loginBtn{
+  width: 48%;
+  margin:5px;
+  float: left;
+}
+
+.imgBox{
+  position: relative;
+}
+
+.detailImage{
+  position: absolute;
+  left : 50%;
+  top:50%;
+  transform:  translate(-50%,-50%);
+
+
+}
+span.like , span.removeIcon{
+  font-size: 12px;
+  margin: 3px;
+ 
+}
+
+.textDetail{
+  font-size: 12px;
+}
+
+
+.cartItem{
+  height : 220px
+}
+
+.Btn{
+  
+ 
+}
+
+.Btn button{
+  height: 18px;
+  width: 18px;
+  color: green;
+}
+
+.orderHeading{
+  position: relative;
+  top: 100px;
+  
+}
+
+.userLogo{
+  position: relative;
+  top: 90px;
+ 
+}
+.userlogo{
+  font-size: 80px;
+  
+}
+
+
+.main-container{
+  height : 100vh;
+  width: 100%;
+  position: relative;
+}
+.child-container{
+  height: 90vh;
+  position: absolute;
+  top: 5vh;
+}
+.payment{
+  height: 25vh;
+}
+
+.moneyCard{
+  height: 51vh;
+}
+#paytm{
+  margin: 3px;
+}
+ .paymentIcon{
+  font-size: 18px;
+  padding: 3px;
+  background-color: snow;
+  border-radius: 2px;
+  color: #6af8f8;
+ }
+ .paymentHeading{
+  color: #a6ff00;
+  background-color: #61dafb;
+ }
+
+ .continueBtn{
+  color: #f1fafd;
+  font-size: large;
+  font-weight: bold;
+ }
+
+ .rating{
+  font-size: 10px;
+ }
+
+
+

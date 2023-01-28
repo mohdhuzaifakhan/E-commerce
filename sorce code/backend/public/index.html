@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="get">
+        <input type="email" name="name" placeholder="enter your name">
+        <input type="password" email="email" placeholder="enter your email">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="user"></div>
+
+    <script>
+        const data = async ()=>{
+                 const userdata = await fetch('http://localhost:8080/login');
+                
+                 document.getElementById('user').innerHTML = userdata.email
+        }
+
+        data();
+    </script>
+</body>
+</html>
