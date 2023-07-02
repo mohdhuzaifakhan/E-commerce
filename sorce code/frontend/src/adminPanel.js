@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Product() {
-
+    const navigate = useNavigate()
     const [Id, setId] = useState();
     const [Title, setTitle] = useState();
     const [Category, setCategory] = useState();
@@ -53,7 +53,7 @@ function Product() {
 
         const res = await response.json();
         setMessage(res.message);
-        useNavigate('/admin')
+        navigate('/admin')
     }
     return (
         <>

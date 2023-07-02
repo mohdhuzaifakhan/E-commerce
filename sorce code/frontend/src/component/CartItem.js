@@ -19,7 +19,7 @@ function CartItem(props) {
   <>
   
 
-  <div className="col-5 border cartItem  m-2">
+  <div className="col-lg-5 col-md-10 col-sm-11 col-12 shadow rounded cartItem my-1">
         <div className="row cartItem justify-content-between">
           <div className="col-5 m-1 text-center shadow"><img src={image} height="200px" width="180px" alt={title} /></div>
           <div className="col-6  textDetail ">

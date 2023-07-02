@@ -4,6 +4,7 @@
   "description": "This is E-commerce website for selling products online",
   "main": "index.js",
   "scripts": {
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mohd Huzaifa khan",

@@ -14,13 +14,11 @@ function Cart() {
 
   return (
     <>
-       <div className='container  shadow text-center my-5'>
+       <div className='container  shadow text-center mx-auto my-5'>
              <h2 className='fw-bolder text-dark py-2'>Items in your Cart are ({product.length})</h2>
        </div>
-
-
        <div className="container-fluid">
-       <div className="row p-1 justify-content-around">
+       <div className="row justify-content-center mx-1">
             
         {
         product.map((item,key)=>{
@@ -28,7 +26,6 @@ function Cart() {
         
         })
        }
-
         </div>
        </div>
 
