@@ -1,6 +1,6 @@
 import React from 'react'
 import GooglePayButton from '@google-pay/button-react';
-function GooglePay() {
+function GooglePay({callback,total}) {
     
     return (
         <div>
@@ -37,12 +37,13 @@ function GooglePay() {
                         totalPriceStatus: 'FINAL',
                         totalPriceLabel: '100',
                         totalPrice: '100',
-                        currencyCode: 'USD',
-                        countryCode: 'US',
+                        currencyCode: 'INR',
+                        countryCode: 'IN',
                     },
                 }}
-                onLoadPaymentData={paymentRequest => {
+                onLoadPaymentData={(paymentRequest,transactionInfo )=> {
                     console.log('load payment data', paymentRequest);
+                    console.log("transaction info",transactionInfo)
                 }}
             />
         </div>

@@ -4,6 +4,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
  
 export default function PaymentButton(props) {
  const total = props.data;
+
  const [show, setShow] = useState(props.show);
  const [success, setSuccess] = useState(false);
  const [ErrorMessage, setErrorMessage] = useState("");
@@ -17,6 +18,7 @@ export default function PaymentButton(props) {
          {
           amount: {      
           value: total ,
+          currency:"INR"
            },
          },
        ],
@@ -42,20 +44,22 @@ export default function PaymentButton(props) {
  //capture likely error
  const onError = (data, actions) => {
    setErrorMessage("An Error occured with your payment ");
+   props.callback("An Error occured with your payment ",false)
  };
 
 
  useEffect(() => {
   if (success) {
-    alert("Payment successful!!");
+    // alert("Payment successful!!");
+    props.callback("Payment successful!!",success)
   }
   },
  [success]
   );
 
-console.log(1, orderID);
-console.log(2, success);
-console.log(3, ErrorMessage);
+// console.log(1, orderID);
+// console.log(2, success);
+// console.log(3, ErrorMessage);
  return (
    <PayPalScriptProvider
      options={{
@@ -69,6 +73,7 @@ console.log(3, ErrorMessage);
            style={{ layout: "vertical" , shape:'pill' , tagline:false }}
            createOrder={createOrder}
            onApprove={onApprove}
+          //  onError={onError}
          />
        ) : null}
      

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import Navbar from './component/Navbar';
 
 function SignUp() {
 
-
+   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -32,7 +32,7 @@ function SignUp() {
         setPassword(event.target.value);
     }
 
-    const data = { name, email, password, status: true };
+    const data = { name, email, password};
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,17 +48,12 @@ function SignUp() {
             })
 
             const res = await response.json();
-            setStatus(res.status);
-            if (res.status === 'ok') {
-                navigate('/cart')
-            } else {
-                navigate('/');
-            }
-
-            setVerify(res.verify);
+            localStorage.setItem("user",JSON.stringify(res.data))
+            alert(res.msg);
+            navigate('/')
 
         } else {
-            setStatus("Wrong password!!!");
+            setStatus("Password mismatch");
         }
 
 
@@ -66,6 +61,7 @@ function SignUp() {
 
     return (
         <>
+            <Navbar/>
 
             <div className="container m-auto justify-content-center orderHeading  py-1 text-center ">
                 <h3 className='text-danger'>{status}{verify}</h3>

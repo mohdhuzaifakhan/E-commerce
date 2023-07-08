@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -6,11 +6,18 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Order() {
-    const [message, setMessage] = useState('');
+    // const product  = useContext(ProductContext)
+    // console.log(product)
     const navigate = useNavigate();
-    const orderProduct = useSelector((state) => {
-        return state.orderReducer;
-    })
+    const user = JSON.parse(localStorage.getItem("user"));
+    const orderProduct = JSON.parse(localStorage.getItem("orderProduct"))
+    if(!user){
+       navigate('/login')
+    }
+    const [message, setMessage] = useState('');
+    // const orderProduct = useSelector((state) => {
+    //     return state.orderReducer;
+    // })
     const [fullName, setFullName] = useState();
     const [phoneNumber, setPhone] = useState();
     const [houseNumber, setHouseNumber] = useState();
@@ -37,34 +44,36 @@ function Order() {
         setPincode(event.target.value);
     }
 
-    const data = { fullName, phoneNumber, houseNumber, street, city, Pincode, orderProduct };
+    const data = { fullName, phoneNumber, houseNumber, street, city, Pincode, orderProduct , qty:1 };
 
 
-    async function handleSubmit(e) {
+    // async function handleSubmit(e) {
+    //     e.preventDefault();
+    //     console.log(data)
+    //     const response = await fetch('http://localhost:8080/order', {
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+
+    //     const res = await response.json();
+    //     setMessage(res.message);
+    //     if (res.message === 'ok') {
+    //         navigate('/payment')
+    //     } else {
+    //         navigate('/');
+    //     }
+
+    // }
+
+    function handleSubmit(e){
         e.preventDefault();
 
-        const response = await fetch('http://localhost:8080/order', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-
-        const res = await response.json();
-        setMessage(res.message);
-        if (res.message === 'ok') {
-            navigate('/payment')
-        } else {
-            navigate('/');
-        }
-
-
-
-
-
-
+        localStorage.setItem("orderProduct",JSON.stringify(data));
+        navigate('/payment')
     }
 
     return (

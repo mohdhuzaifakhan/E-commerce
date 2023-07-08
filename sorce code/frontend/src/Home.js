@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from './component/Card'
 import { data } from './data';
-
+import Navbar from './component/Navbar';
 function Home() {
 
   const [dataBaseData, setData] = useState(data);
@@ -22,12 +22,14 @@ function Home() {
 
 
   return (
-
+    <>
+    <Navbar/>
     <div className="container my-3 mx-auto">
       <div className="row justify-content-center">
         <Card data={dataBaseData} />
       </div>
     </div>
+    </>
   )
 
 }

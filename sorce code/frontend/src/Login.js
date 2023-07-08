@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import Navbar from './component/Navbar';
 
 function Login() {
     //const dispatch = useDispatch();
@@ -11,38 +12,26 @@ function Login() {
     function handleEmail(event) {
         setEmail(event.target.value);
     }
-    function navigateToHome() {
-        navigate('/');
-    }
     function handlePassword(event) {
         setPassword(event.target.value);
     }
-    const user = { email, password }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (email == "mohd123@gmail.com" && password == "mohdhuzaifa") {
-            navigate('/admin');
-        } else {
-
+       
             const response = await fetch(`http://localhost:8080/login?email=${email}&password=${password}`)
             const res = await response.json();
-            // localStorage.setItem("localUser",JSON.stringify(res.data));
             localStorage.setItem("user", JSON.stringify(res.data));
-            if (res.status === 'ok') {
-                navigateToHome();
-            } else if (res.status === 'no') {
-                navigate('/signup');
-            }
-        }
-
-
-
+            alert(res.msg);
+            navigate('/');
+            window.location.reload()
+   
     }
 
     return (
         <>
 
-
+            <Navbar/>
             <div className="container m-auto userLogo flex text-center py-1 "></div>
             <div className=" container m-auto  orderHeading  py-1  text-center"><h3>Please Login</h3></div>
             <form method='GET' onSubmit={handleSubmit}>

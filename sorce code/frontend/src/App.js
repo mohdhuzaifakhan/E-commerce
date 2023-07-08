@@ -13,10 +13,11 @@ import Order from './component/Order';
 import Payment from './Payment';
 import StripePayment from './StripePayment';
 import Product from './adminPanel';
+import Setting from './Setting';
+
 function App() {
   return (
     <>
-      <Navbar/>
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/product' element={<NewProduct />} />
@@ -29,6 +30,7 @@ function App() {
         <Route exact path='/payment' element={<Payment/>}/>
         <Route exact path='/stripePayment' element={<StripePayment/>}/>
         <Route exact path='/admin' element={<Product/>}/>
+        <Route exact path='/setting' element={<Setting/>}/>
       </Routes>
       
       
