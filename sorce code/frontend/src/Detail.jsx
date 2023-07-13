@@ -83,7 +83,7 @@ function Detail() {
       navigate('/login')
     } else {
       localStorage.setItem("orderProduct", JSON.stringify(responseData))
-      
+
       navigate('/order')
     }
 
@@ -106,20 +106,22 @@ function Detail() {
             <div className="container-fluid p-0 ">
               <h4 className='text-primary my-0 fs-4'><span>CATEGORY : </span>{responseData.category}</h4>
               <h6 className='text-danger my-0 fs-3'><span>Title : </span> {responseData.title}</h6>
-              <p className='text-success my-0 fs-6'> <span className='text-info'>Description :</span> {responseData.description}</p>
+              <p className='text-success text-justify my-0 fs-6'> <span className='text-info'>Description :</span> {responseData.description}</p>
               <div className='container d-flex float-left justify-content-center'>
 
-                <div className='p-3'>
-                  <Rating
-                    name="text-feedback"
-                    value={responseData.rating.rate ? responseData.rating.rate : 4.5}
-                    readOnly
-                    precision={0.5}
-                    emptyIcon={<StarIcon style={{ opacity: 0.7 }} fontSize="inherit" />}
-                  />
+                <div className='lg:p-3 p-0'>
+                  <p>
+                    <Rating
+                      name="text-feedback"
+                      value={responseData.rating.rate ? responseData.rating.rate : 4.5}
+                      readOnly
+                      precision={0.5}
+                      emptyIcon={<StarIcon style={{ opacity: 0.7 }} fontSize="inherit" />}
+                    />
+                  </p>
                 </div>
-                <div>
-                  <p className='text-primary p-2'>Reviews : {responseData.rating.count ? responseData.rating.count : 150}</p>
+                <div className='p-0'>
+                  <p className='text-primary fs-6 lg:p-2'>Reviews : {responseData.rating.count ? responseData.rating.count : 150}</p>
                 </div>
               </div>
               <p className='my-0 text-muted'><span>RS:</span>{responseData.price}</p>

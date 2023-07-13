@@ -1,7 +1,7 @@
 
 import './App.css';
 import Navbar from './component/Navbar';
-import {Routes , Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import About from './About'
 import Cart from './Cart'
 import Login from './Login';
@@ -15,26 +15,33 @@ import StripePayment from './StripePayment';
 import Product from './adminPanel';
 import Setting from './Setting';
 
+import { createContext, useState } from 'react';
+
+export const DataProvider = createContext(null);
+
 function App() {
+  const [userData, setUserData] = useState();
   return (
     <>
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/product' element={<NewProduct />} />
-        <Route exact path='/about' element={<About />} />
-        <Route exact path='/cart/*' element={<Cart />} />
-        <Route exact path='/login' element={<Login />} />
-        <Route exact path='/signup' element={<SignUp />} />
-        <Route exact path='/:id' element={<Detail /> } />
-        <Route exact path='/order' element={<Order /> } />
-        <Route exact path='/payment' element={<Payment/>}/>
-        <Route exact path='/stripePayment' element={<StripePayment/>}/>
-        <Route exact path='/admin' element={<Product/>}/>
-        <Route exact path='/setting' element={<Setting/>}/>
-      </Routes>
-      
-      
-    
+      <DataProvider.Provider value={{userData,setUserData}}>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/product' element={<NewProduct />} />
+          <Route exact path='/about' element={<About />} />
+          <Route exact path='/cart/*' element={<Cart />} />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/signup' element={<SignUp />} />
+          <Route exact path='/:id' element={<Detail />} />
+          <Route exact path='/order' element={<Order />} />
+          <Route exact path='/payment' element={<Payment />} />
+          <Route exact path='/stripePayment' element={<StripePayment />} />
+          <Route exact path='/admin' element={<Product />} />
+          <Route exact path='/setting' element={<Setting />} />
+        </Routes>
+      </DataProvider.Provider>
+
+
+
 
     </>
   );

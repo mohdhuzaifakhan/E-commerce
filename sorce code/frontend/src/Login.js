@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import Navbar from './component/Navbar';
+import { DataProvider } from './App';
 
 function Login() {
     //const dispatch = useDispatch();
+    const {userData , setUserData} = useContext(DataProvider);
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -21,6 +23,7 @@ function Login() {
        
             const response = await fetch(`http://localhost:8080/login?email=${email}&password=${password}`)
             const res = await response.json();
+            setUserData(res.data);
             localStorage.setItem("user", JSON.stringify(res.data));
             alert(res.msg);
             navigate('/');

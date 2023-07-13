@@ -1,26 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { DataProvider } from '../App';
 
 function Navbar() {
+  const { userData, setUserData } = useContext(DataProvider)
   const navigate = useNavigate()
   const [name, setName] = useState("Admin");
   const user = JSON.parse(localStorage.getItem("user"));
-  const [numberOfCartItems , setCartItemsNumber] = useState(0)
+  const [numberOfCartItems, setCartItemsNumber] = useState(0)
   const state = useSelector((state) => {
     return state.ChangeData
   })
+
+  console.log(userData);
 
   useEffect(() => {
     if (user) {
       setName(user.name)
       setCartItemsNumber(user.cartItems.length)
     }
-  }, [name,numberOfCartItems,user])
+  }, [name, numberOfCartItems, user])
 
   const handleLogout = () => {
     localStorage.removeItem("user")
+    setUserData(null);
     navigate('/')
     window.location.reload();
   }
@@ -58,8 +63,13 @@ function Navbar() {
           </ul>
 
 
-          <Link className="nav-link p-0 d-grid my-1" to="/login"><button type="button" className="btn btn-outline-success mx-2 justify-content-md-end py-2 px-3"><i className="fa-solid fa-right-to-bracket mx-2"></i>Login</button></Link>
-          <Link className="nav-link p-0 d-grid my-1" to="/signup"><button type="button" className="btn btn-outline-success mx-2 justify-content-md-end py-2"><i className="fa-solid fa-user mx-2"></i>SignUp</button></Link>
+          {
+            user == null ? <>
+           <Link className="nav-link p-0 d-grid my-1" to="/login"><button type="button" className="btn btn-outline-success mx-2 justify-content-md-end py-2 px-3"><i className="fa-solid fa-right-to-bracket mx-2"></i>Login</button></Link>
+           <Link className="nav-link p-0 d-grid my-1" to="/signup"><button type="button" className="btn btn-outline-success mx-2 justify-content-md-end py-2"><i className="fa-solid fa-user mx-2"></i>SignUp</button></Link></>
+              :
+              null
+          }
 
           <Link className="nav-link p-0 d-grid my-1" to="/cart"><button type="button" className="btn btn-outline-success mx-2 justify-content-md-end py-2"><i className="fa-solid fa-cart-shopping mx-2 "></i>Cart({numberOfCartItems})</button></Link>
         </div>

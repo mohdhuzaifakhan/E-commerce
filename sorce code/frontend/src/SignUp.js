@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Navbar from './component/Navbar';
+import { DataProvider } from './App';
 
 function SignUp() {
 
-   
+    const {userData , setUserData} = useContext(DataProvider)   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -48,6 +49,7 @@ function SignUp() {
             })
 
             const res = await response.json();
+            setUserData(res.data);
             localStorage.setItem("user",JSON.stringify(res.data))
             alert(res.msg);
             navigate('/')
