@@ -12,7 +12,7 @@ exports.adminLogin =  async(req,res)=>{
          }
          else {
             if(data){
-               res.json({data:data});
+               res.json({data});
                console.log("data successfully fetched");
                //console.log(data);
             }else{

@@ -7,26 +7,32 @@ exports.login = (req, res) => {
 
       const saltRounds = 3;
       const { email, password } = req.query;
+      // console.log(email,password)
       Customer.findOne({ email }, (err, data) => {
          if (err) {
             console.log("Some error is occuring")
          }
          else {
-            bcrypt.compare(password, data.password, function (err, result) {
 
-               if (result) {
-                  if (data) {
-                     res.json({ data: data , msg : "logged in successfully"});
+            if (data === null) {
+               res.json({ msg: "Email or password is wrong" })
+            } else {
+               bcrypt.compare(password, data.password, function (err, result) {
+
+                  if (result) {
+                     if (data) {
+                        res.json({ data: data, msg: "logged in successfully" });
+                     }
+                  } else {
+                     res.json({ msg: "Email or password is wrong" })
                   }
-               } else {
-                  res.json({ err:"Email or password is wrong"})
-               }
 
-            });
+               });
+            }
          }
       })
    } catch (e) {
-      console.log(e);
+      console.log("Some error ");
    }
 }
 
@@ -49,10 +55,10 @@ exports.signUp = (req, res) => {
          });
 
 
-         newCustomer.save((err,data) => {
+         newCustomer.save((err, data) => {
             if (!err) {
                console.log('successfully added')
-               res.json({ msg: "successfully register" ,data:data});
+               res.json({ msg: "successfully register", data: data });
             } else {
                console.error(err);
                res.json({ status: 'something went wrong' })
