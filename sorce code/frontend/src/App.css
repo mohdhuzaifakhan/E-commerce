@@ -42,9 +42,9 @@ body {
 
 
 .listItem:hover {
-  background-color: #ff8400;
+  background-color: #f1ede9;
   border-radius: 5px;
-  border: #ffcc00;
+  border: #646464;
 }
 
 .cardStyle {

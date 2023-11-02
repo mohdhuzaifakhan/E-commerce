@@ -33,7 +33,7 @@ function Method() {
                                 </div>
                                 <div className="col-4  text-center">
                                     <Link to='/stripePayment'>
-                                        <button type="button" class="btn btn-danger">Continue</button>
+                                        <button type="button" className="btn btn-danger">Continue</button>
                                     </Link>
                                 </div>
                             </div>

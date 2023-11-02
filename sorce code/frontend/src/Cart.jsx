@@ -19,9 +19,8 @@ function Cart() {
        </div>
        <div className="container-fluid">
        <div className="row justify-content-center mx-1">
-            
         {
-        product.map((item,key)=>{
+        product?.map((item,key)=>{
           return    <CartItem key={key}  data={item}/>
         
         })

@@ -141,7 +141,7 @@ function Detail() {
       </div>
       <div className="container my-3 mx-auto">
         <div className="row justify-content-center">
-          <Card data={detail.slice(Math.floor(Math.random() * (10 - 0)), Math.floor(Math.random() * (data.length - 8)))} />
+          <Card />
         </div>
       </div>
 

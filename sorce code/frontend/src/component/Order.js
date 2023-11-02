@@ -93,7 +93,7 @@ function Order() {
                             <div className="row justify-content-center">
                                 <div className="col-lg-6 col-md-9 col-12 col-sm-12">
                                     <div className="m-3">
-                                        <i class="fa-solid icon mx-2 fa-user"></i>
+                                        <i className="fa-solid icon mx-2 fa-user"></i>
                                         <input type="text" className="form-control" autoComplete='off' name="fullName" onChange={handleName} placeholder="Full name" />
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@ function Order() {
                                 </div>
                                 <div className="col-lg-6 col-md-9 col-12 col-sm-12">
                                     <div className="m-3">
-                                        <i class="fa-solid fa-location-dot icon mx-2"></i>
+                                        <i className="fa-solid fa-location-dot icon mx-2"></i>
                                         <input type="text" className="form-control" autoComplete='off' name="street" onChange={handleStreet} placeholder="Area , street or village" />
                                     </div>
                                 </div>

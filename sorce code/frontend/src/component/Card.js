@@ -1,39 +1,53 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { data } from '../data'
+import CardDetails from './CardDetails';
 
-import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
+function Card({ text }) {
+    // console.log(text)
+    const [dataBaseData, setData] = useState(data);
+    const [searchItems, setSearchItems] = useState([])
+    useEffect(() => {
 
-function Card(props) {
-    const { data } = props;
+        async function fetchData() {
+            const response = await fetch('http://localhost:8080/admin')
+            const result = await response.json()
+            // console.log(result.data)
+            setData(result.data)
+        }
+        fetchData()
+
+    }, [])
+
+    useEffect(() => {
+        setSearchItems(data.filter(function (item) {
+            return item.description.search(text) != -1 
+        }))
+    }, [text])
+    console.log(text)
+    console.log(searchItems)
+
     return (
         <div className='row'>
+
             {
-                data.map((item) => {
+                searchItems.map((item, index) => {
+                    // console.log(item)
                     return (
                         <>
-                            <div key={item.id} className="col-lg-3 col-12 shadow col-md-6 col-sm-12 px-1 py-2 my-2 rounded float-start text-center  " >
-                                <Link to={'/' + item.id}> <img src={item.image} className="card-img-top" height="200px" alt="items" /></Link>
-                                <div className="card-body fw-bolder ">
-                                    <p className="card-text p-0">Title: {item.title.slice(0, 40)}</p>
+                            <CardDetails key={index} item={item} />
+                        </>
 
-                                </div>
-                                <div className="row">
-                                    <div className="col-6">
-                                        <Rating
-                                            name="text-feedback"
-                                            value={item.rating.rate}
-                                            readOnly
-                                            precision={0.5}
-                                            emptyIcon={<StarIcon style={{ opacity: 0.55}} fontSize="inherit" />}
-                                        />
-                                    </div>
-                                    <div className="col-5">
-                                        <div className='text-info'>Reviews : {item.rating.count}</div>
-                                    </div>
-                                </div>
+                    )
 
-                            </div>
+                })
+            }
+            {
+                dataBaseData.map((item, index) => {
+                    // console.log(item)
+                    return (
+                        <>
+                            <CardDetails key={index} item={item} />
                         </>
 
                     )

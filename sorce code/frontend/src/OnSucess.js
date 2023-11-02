@@ -26,7 +26,7 @@ function OnSucess() {
                   </div>
                   <div className="col-4  text-center">
 
-                    <input type="submit" class="btn btn-danger">Continue...</input>
+                    <input type="submit" className="btn btn-danger">Continue...</input>
 
 
                   </div>
@@ -53,7 +53,7 @@ function OnSucess() {
                   </div>
                   <div className="col-4  text-center">
 
-                    <input type="submit" class="btn btn-danger">Continue...</input>
+                    <input type="submit" className="btn btn-danger">Continue...</input>
 
                   </div>
                 </div>
@@ -64,7 +64,7 @@ function OnSucess() {
                   </div>
                   <div className="col-4  text-center">
 
-                    <input type="submit" class="btn btn-danger">Continue...</input>
+                    <input type="submit" className="btn btn-danger">Continue...</input>
 
                   </div>
                 </div>
@@ -97,7 +97,7 @@ function OnSucess() {
                 <div className="row m-1 p-1 justify-content-end">
                   <div className="col-4 text-end">
 
-                    <input type="submit" onChange={handleSubmitBtn} name="payment" value="paypal" class="btn btn-danger">Pay ({total.toFixed(2)})</input>
+                    <input type="submit" onChange={handleSubmitBtn} name="payment" value="paypal" className="btn btn-danger">Pay ({total.toFixed(2)})</input>
 
                   </div>
                 </div>

@@ -25,8 +25,8 @@ function App() {
     <>
       <DataProvider.Provider value={{userData,setUserData}}>
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/product' element={<NewProduct />} />
+          <Route exact path='/' element={<Home/>} />
+          <Route exact path='/product' element={<NewProduct/>} />
           <Route exact path='/about' element={<About />} />
           <Route exact path='/cart/*' element={<Cart />} />
           <Route exact path='/login' element={<Login />} />

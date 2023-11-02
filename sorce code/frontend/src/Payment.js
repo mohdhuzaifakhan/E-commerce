@@ -68,7 +68,7 @@ function Payment() {
         <>
             {
                 paymentStatus ?
-                    <div class="container my-5 ">
+                    <div className="container my-5 ">
                         <div className=" alert alert-success" role="alert">
                             {paymentMsg} and {confirmOrder}
                         </div>

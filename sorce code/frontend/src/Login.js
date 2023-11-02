@@ -24,7 +24,9 @@ function Login() {
             const response = await fetch(`http://localhost:8080/login?email=${email}&password=${password}`)
             const res = await response.json();
             setUserData(res.data);
-            localStorage.setItem("user", JSON.stringify(res.data));
+            if(res.data != null || res.data != undefined){
+                localStorage.setItem("user", JSON.stringify(res.data));
+            }
             alert(res.msg);
             navigate('/');
             window.location.reload()
