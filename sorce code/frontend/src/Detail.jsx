@@ -12,6 +12,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Card from './component/Card'
 import Navbar from './component/Navbar';
+import Footer from './component/Footer';
 
 // const ProductContext = createContext()
 
@@ -144,7 +145,7 @@ function Detail() {
           <Card />
         </div>
       </div>
-
+     <Footer/>
     </>
   )
 }

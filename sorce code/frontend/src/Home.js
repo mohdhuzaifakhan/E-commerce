@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from './component/Card'
 import Navbar from './component/Navbar';
+import Footer from './component/Footer';
 function Home() {
   const [text , setText] = useState()
   // console.log(text)
@@ -12,6 +13,8 @@ function Home() {
           <Card text={text}/>
         </div>
       </div>
+      <Footer/>
+
     </>
   )
 
