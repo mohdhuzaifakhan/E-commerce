@@ -32,7 +32,7 @@ function Payment() {
     const [paymentType, setPaymentType] = useState('paypal');
     const shipingCharge = 10;
     const qty = orderProduct.qty ? orderProduct.qty : 1
-    const amount = orderProduct.orderProduct.price;
+    const amount = orderProduct?.orderProduct?.price ? orderProduct?.orderProduct?.price : 0;
     const total = shipingCharge + amount * qty;
     const [paymentMsg, setPaymentMsg] = useState('payment succesfull');
     const [paymentStatus, setPaymentStatus] = useState(false);
@@ -104,7 +104,7 @@ function Payment() {
                                     </div>
                                     <div className="row">
                                         <div className="col-6">
-                                            <p className='text-success text-start p-1'>Items ({orderProduct.qty ? orderProduct.qty : 1} quantity)</p>
+                                            <p className='text-success text-start p-1'>Items ({orderProduct?.qty ? orderProduct?.qty : 1} quantity)</p>
                                         </div>
                                         <div className="col-6">
                                             <p className='text-success text-end p-1'>Price:{amount}</p>

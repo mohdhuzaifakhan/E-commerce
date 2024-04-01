@@ -60,15 +60,18 @@ function Navbar({ setSearchItem }) {
       <nav className="navbar navbar-expand-lg m-1 shadow  navbar-light bg-light position-sticky top-0">
         <div className="container-fluid">
           {
-            user == null ? <Link className="navbar-brand p-1  mx-2" to="#"><h1 class="text-primary display-6">Fruitables</h1></Link> :
-              <><Avatar
-                onClick={handleClick}
-                size="small"
-                sx={{ mr: 1 }}
-                aria-controls={open ? 'account-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-              >{name[0].toUpperCase()}</Avatar>
+            user == null ? <Link className="navbar-brand p-1  mx-2" to="#"><h1 class="text-primary display-6">KhanShop</h1></Link> :
+              <>
+                <div className='av-w d-flex'>
+                  <Avatar
+                    onClick={handleClick}
+                    size="small"
+                    sx={{ mr: 1 }}
+                    aria-controls={open ? 'account-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                  >{name[0].toUpperCase()}</Avatar>
+                </div>
                 <Menu
                   anchorEl={anchorEl}
                   id="account-menu"
